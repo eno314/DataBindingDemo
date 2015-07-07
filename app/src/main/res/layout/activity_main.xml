@@ -1,10 +1,15 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="user"
             type="jp.eno314.databindingdemo.User" />
+
+        <variable
+            name="activity"
+            type="jp.eno314.databindingdemo.MainActivity" />
 
     </data>
 
@@ -27,7 +32,8 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ボタン" />
+            android:text="ボタン"
+            app:onClickListener="@{activity.onClickButtonListener}" />
 
 
     </LinearLayout>

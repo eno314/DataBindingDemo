@@ -11,23 +11,20 @@ import jp.eno314.databindingdemo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private User mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        final User user = new User("Test", "User");
-        binding.setUser(user);
+        mUser = new User("Test", "User");
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                user.setFirstName("AAAAA");
-                user.setLastName("BBBBB");
-            }
-        });
+        binding.setUser(mUser);
+        binding.setActivity(this);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,5 +46,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public View.OnClickListener getOnClickButtonListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUser.setFirstName("HOGEHOGE");
+                mUser.setLastName("FUGAGUGA");
+            }
+        };
     }
 }
