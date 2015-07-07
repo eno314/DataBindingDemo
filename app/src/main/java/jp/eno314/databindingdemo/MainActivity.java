@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import jp.eno314.databindingdemo.databinding.ActivityMainBinding;
 
@@ -18,6 +19,14 @@ public class MainActivity extends AppCompatActivity {
 
         final User user = new User("Test", "User");
         binding.setUser(user);
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user.setFirstName("AAAAA");
+                user.setLastName("BBBBB");
+            }
+        });
     }
 
     @Override
